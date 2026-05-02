@@ -185,12 +185,12 @@
   /* HERO BACKGROUND ACE A */
   .hero-bg-a {
     position: absolute;
-    right: -4%; top: 50%;
+    right: -2%; top: 50%;
     transform: translateY(-50%);
-    width: min(60vw, 780px);
-    height: min(80vh, 900px);
+    width: min(42vw, 540px);
+    height: min(70vh, 680px);
     z-index: 1;
-    opacity: 0.95;
+    opacity: 0.92;
     pointer-events: none;
     display: flex; align-items: center; justify-content: center;
   }
@@ -202,7 +202,7 @@
     filter: drop-shadow(0 14px 40px rgba(212,0,41,0.15));
   }
   @media (max-width: 900px) {
-    .hero-bg-a { opacity: 0.22; right: -20%; }
+    .hero-bg-a { opacity: 0.20; right: -22%; width: min(70vw, 480px); }
   }
 
   /* SECTION SHELL */
@@ -921,14 +921,14 @@
     background-position: center, center;
   }
 
-  /* LEGACY - full-bleed team photo with strong dark overlay */
+  /* LEGACY - full-bleed solo tech-at-van shot, individual trust framing */
   .legacy {
     background-color: var(--ink);
     background-image:
-      linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(91,0,20,0.78) 70%, rgba(212,0,41,0.55) 100%),
-      url("./legacy-team-walking.jpg");
+      linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(91,0,20,0.78) 60%, rgba(212,0,41,0.55) 100%),
+      url("./tech-van-portrait-wide.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: center right;
     background-attachment: scroll;
   }
   @media (min-width: 1024px) {
