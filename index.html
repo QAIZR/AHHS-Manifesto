@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Ace Way &middot; A Culture Manifesto &middot; v4</title>
+<title>The Ace Way</title>
 <meta name="description" content="The Ace Way: a culture manifesto for Ace Hardware Home Services. We exist to help others.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,14 +58,18 @@
     transition: all 0.3s ease;
   }
   nav.topbar .brand-mark {
-    font-family: var(--display);
-    font-weight: 900;
-    font-size: 0.95rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--ink);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
   }
-  nav.topbar .brand-mark span { color: var(--ace-red); }
+  nav.topbar .brand-mark img {
+    height: 36px;
+    width: auto;
+    display: block;
+  }
+  @media (max-width: 760px) {
+    nav.topbar .brand-mark img { height: 28px; }
+  }
   nav.topbar ul {
     list-style: none;
     display: flex; gap: 2rem;
@@ -177,17 +181,24 @@
   /* HERO BACKGROUND ACE A */
   .hero-bg-a {
     position: absolute;
-    right: -8%; top: 50%;
+    right: -4%; top: 50%;
     transform: translateY(-50%);
-    width: min(70vw, 900px);
+    width: min(60vw, 780px);
     height: min(80vh, 900px);
     z-index: 1;
     opacity: 0.95;
     pointer-events: none;
+    display: flex; align-items: center; justify-content: center;
   }
-  .hero-bg-a svg { width: 100%; height: 100%; }
+  .hero-bg-a img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    filter: drop-shadow(0 14px 40px rgba(212,0,41,0.15));
+  }
   @media (max-width: 900px) {
-    .hero-bg-a { opacity: 0.18; right: -25%; }
+    .hero-bg-a { opacity: 0.22; right: -20%; }
   }
 
   /* SECTION SHELL */
@@ -610,6 +621,9 @@
     color: var(--ink);
   }
   .closer h2 .red { color: var(--ace-red); }
+  .closer-stack { display: flex; flex-direction: column; gap: 0.85rem; }
+  .closer-stack .line { display: block; }
+  .closer-stack .line.red { color: var(--ace-red); }
   .closer .sig {
     font-family: var(--display);
     font-weight: 700;
@@ -631,19 +645,24 @@
     background: var(--paper);
     text-align: center;
   }
-  footer .foot-mark {
-    font-family: var(--display);
-    font-weight: 900;
-    color: var(--ink);
-    font-size: 0.9rem;
-    letter-spacing: 0.05em;
+  footer .foot-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.9rem;
   }
-  footer .foot-mark span { color: var(--ace-red); }
+  footer .foot-logo img {
+    height: 44px;
+    width: auto;
+    display: block;
+    opacity: 0.95;
+  }
   footer p {
-    font-size: 0.78rem;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 0.82rem;
     color: var(--gray-600);
-    margin-top: 0.7rem;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
   }
 
   /* REVEAL ANIMATION */
@@ -902,7 +921,9 @@
 <div class="progress-bar" id="progress"></div>
 
 <nav class="topbar">
-  <div class="brand-mark">THE <span>ACE</span> WAY</div>
+  <a href="#" class="brand-mark" aria-label="Ace Hardware Home Services">
+    <img src="./Ace%20Logo.png" alt="Ace Hardware Home Services">
+  </a>
   <ul>
     <li><a href="#purpose">Purpose</a></li>
     <li><a href="#pillars">Who We Help</a></li>
@@ -916,23 +937,11 @@
 <section class="hero">
   <div class="hero-photo-backdrop" aria-hidden="true"></div>
   <div class="hero-bg-a" aria-hidden="true">
-    <svg viewBox="0 0 600 700" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="agrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#D40029"/>
-          <stop offset="100%" stop-color="#9E0623"/>
-        </linearGradient>
-      </defs>
-      <!-- Refined Ace 'A' triangle - matches brand book proportions -->
-      <polygon points="300,40 540,660 420,660 300,300 180,660 60,660" fill="url(#agrad)"/>
-      <polygon points="300,40 380,300 220,300" fill="#ffffff"/>
-      <!-- soft echo -->
-      <polygon points="300,40 540,660 420,660 300,300 180,660 60,660" fill="#D40029" opacity="0.08" transform="translate(40,30)"/>
-    </svg>
+    <img src="./ace-triangle-a.jpg" alt="">
   </div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">The Ace Way &middot; A Culture Manifesto</div>
-    <h1>Anyone can <span class="accent">fix a pipe.</span></h1>
+    <div class="hero-eyebrow">The Ace Way</div>
+    <h1>More Than Service. <span class="accent">Real Impact.</span></h1>
     <p class="hero-sub">What makes us different is how we serve. This is what we believe, how we show up, and the standard we hold ourselves to. Not a slogan. Not aspiration. The behaviors our neighbors, our teammates, and our communities experience consistently.</p>
     <a href="#purpose" class="hero-cta">
       Read what we believe
@@ -1013,8 +1022,8 @@
       <article class="pillar reveal">
         <span class="pillar-num">02 / Our Neighbors</span>
         <h3>We help our customers.</h3>
-        <p>We are redefining what service is. To us, service is a lifestyle. Service can look like delivering excellence in your craft, or like changing a lightbulb on the way out, bringing in a garbage can, handing someone their newspaper. We love going out of our way to create hidden moments of joy.</p>
-        <div class="quiet">We treat customers as neighbors. Because in many cases, they literally are.</div>
+        <p>We show up prepared, tell the truth, and stand behind our work. Through our Red Bow Promise, we choose long-term trust over short-term gain and always do what's right, even when it's harder.</p>
+        <div class="quiet">We treat customers with integrity. No shortcuts, no surprises.</div>
       </article>
 
       <article class="pillar reveal">
@@ -1037,11 +1046,11 @@
       <div>
         <div class="section-eyebrow on-red reveal" style="color: white;">What we promise</div>
         <blockquote class="reveal">
-          The <span class="red-bow">Red Bow Promise</span> is our pledge to always do the right thing for our customers, even when it is not the easiest path.
+          The <span class="red-bow">Red Bow Promise</span> is the standard we hold ourselves to.
         </blockquote>
       </div>
       <div class="promise-body reveal">
-        <p>We tell you when you don't need the new unit. We tell you when the cheaper fix will hold for two more years. We pass on the upsell. We give you the information to protect your home, not the pitch to protect our revenue.</p>
+        <p>Our customers can expect us to show up on time, be upfront on price, do it right, and leave their home better than we found it.</p>
         <p style="margin-top: 1rem;"><strong style="color: white;">We will lose the quarter to win the quarter century. That is the Red Bow.</strong></p>
       </div>
     </div>
@@ -1065,7 +1074,7 @@
         <div class="value-num">01</div>
         <h3>Winning</h3>
         <div class="value-tag">Raving fans, no mediocrity</div>
-        <p class="value-body">A technician changes a pantry lightbulb on his way out because he knows the elderly neighbor can't reach it herself. Customers call their tech directly on weekends for honest guidance. What others find irrational, we make commonplace.</p>
+        <p class="value-body">We create raving fans of our customers and each other. We don't tolerate mediocrity. We do what's right, not what's easy, and we go beyond what's expected. What others call "extra," we call standard.</p>
       </article>
 
       <article class="value reveal">
@@ -1106,8 +1115,8 @@
       <article class="value reveal">
         <div class="value-num">07</div>
         <h3>Teamwork</h3>
-        <div class="value-tag">No one finishes until everyone is taken care of</div>
-        <p class="value-body">No one finishes the day until everyone is taken care of. Technicians and apprentices clean each other's trucks after a hard job. We pick up flat tires, fix fences, run breakfast for the team. Strong teams perform better, so we care for each other first.</p>
+        <div class="value-tag">We show up for each other</div>
+        <p class="value-body">We step in, pitch in, and get it done...together. No one gets left behind, and no job is someone else's problem.</p>
       </article>
     </div>
   </div>
@@ -1167,15 +1176,22 @@
 <!-- CLOSER -->
 <section class="closer">
   <div class="closer-inner">
-    <h2 class="reveal">Better technicians.<br>Better leaders.<br>Better teammates.<br><span class="red">Better neighbors.</span></h2>
-    <p class="lede reveal" style="margin: 1.5rem auto 0;">Anyone can fix a pipe. Few can build something that lasts. <strong style="color: var(--ink);">This is the Ace Way.</strong></p>
+    <h2 class="reveal closer-stack">
+      <span class="line">Better Technicians.</span>
+      <span class="line">Better Leaders.</span>
+      <span class="line">Better Teammates.</span>
+      <span class="line red">Better Neighbors.</span>
+    </h2>
+    <p class="lede reveal" style="margin: 2rem auto 0;">Anyone can fix what's broken. Few can build something that lasts. <strong style="color: var(--ink);">This is the Ace Way.</strong></p>
     <div class="sig reveal">Bringing Helpful To Your Home</div>
   </div>
 </section>
 
 <footer>
-  <div class="foot-mark">ACE HARDWARE <span>&middot;</span> HOME SERVICES</div>
-  <p>The Ace Way &middot; A Culture Manifesto</p>
+  <div class="foot-logo">
+    <img src="./Ace%20Logo.png" alt="Ace Hardware Home Services">
+  </div>
+  <p>The Ace Way</p>
 </footer>
 
 <script>
