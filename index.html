@@ -392,22 +392,23 @@
 
   /* CLOSER CTA - solid red apply button, the final call */
   .closer-cta {
-    display: inline-flex; align-items: center; gap: 0.7rem;
-    margin-top: 2.8rem;
+    display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+    width: fit-content;
+    margin: 2.8rem auto 0;
     font-family: var(--display);
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     text-transform: uppercase; letter-spacing: 0.18em;
     color: white;
     text-decoration: none;
-    padding: 1.15rem 2.4rem;
+    padding: 1.35rem 3rem;
     background: var(--ace-red);
     border: 2px solid var(--ace-red);
     border-radius: 999px;
     overflow: hidden; position: relative;
     transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    box-shadow: 0 6px 20px rgba(212, 0, 41, 0.18);
+    box-shadow: 0 8px 24px rgba(212, 0, 41, 0.22);
   }
   .closer-cta::before {
     content: ""; position: absolute; inset: 0;
@@ -934,18 +935,18 @@
     .legacy { background-attachment: fixed; }
   }
 
-  /* PROOF PHOTO STRIP - small accent images on values + pullquote */
+  /* PROOF PHOTO STRIP - 3 services showing variety: plumbing, heating, cooling */
   .proof-photo {
     position: relative;
     margin: 4rem auto 0;
     max-width: var(--max);
     padding: 0 2rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
   }
   .proof-photo .ph {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 3;
     border-radius: 4px;
     overflow: hidden;
     background-color: var(--gray-200);
@@ -963,8 +964,9 @@
     transition: width 0.5s cubic-bezier(.2,.7,.3,1);
   }
   .proof-photo .ph:hover::after { width: 100%; }
-  .proof-photo .ph-1 { background-image: linear-gradient(135deg, rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url("./tech-furnace.jpg"); }
-  .proof-photo .ph-2 { background-image: linear-gradient(135deg, rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url("./tech-ac.jpg"); }
+  .proof-photo .ph-1 { background-image: linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,0,0,0.25)), url("./tech-plumbing.jpg"); }
+  .proof-photo .ph-2 { background-image: linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,0,0,0.25)), url("./tech-water-heater.jpg"); }
+  .proof-photo .ph-3 { background-image: linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,0,0,0.25)), url("./tech-ac.jpg"); }
   @media (max-width: 760px) {
     .proof-photo { grid-template-columns: 1fr; }
   }
@@ -1190,6 +1192,7 @@
   <div class="proof-photo">
     <div class="ph ph-1 reveal" aria-hidden="true"></div>
     <div class="ph ph-2 reveal" aria-hidden="true"></div>
+    <div class="ph ph-3 reveal" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -1242,10 +1245,7 @@
     <p class="lede reveal closer-lede">Anyone can fix what's broken. Few can build something that lasts.</p>
     <p class="reveal closer-final">This is the Ace Way.</p>
     <div class="sig reveal">Bringing Helpful To Your Home</div>
-    <a href="#" class="closer-cta reveal" aria-label="Apply now">
-      Apply Now
-      <span class="arrow">&rarr;</span>
-    </a>
+    <a href="#" class="closer-cta reveal" aria-label="Apply now">Apply Now</a>
   </div>
 </section>
 
