@@ -390,6 +390,42 @@
   .red-bow-kicker { margin-top: 1.2rem; color: white; }
   .red-bow-kicker strong { color: white; font-weight: 900; }
 
+  /* CLOSER CTA - solid red apply button, the final call */
+  .closer-cta {
+    display: inline-flex; align-items: center; gap: 0.7rem;
+    margin-top: 2.8rem;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase; letter-spacing: 0.18em;
+    color: white;
+    text-decoration: none;
+    padding: 1.15rem 2.4rem;
+    background: var(--ace-red);
+    border: 2px solid var(--ace-red);
+    border-radius: 999px;
+    overflow: hidden; position: relative;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(212, 0, 41, 0.18);
+  }
+  .closer-cta::before {
+    content: ""; position: absolute; inset: 0;
+    background: var(--ace-red-deep);
+    transform: translateX(-101%);
+    transition: transform 0.4s cubic-bezier(.7,.1,.2,1);
+    z-index: -1;
+  }
+  .closer-cta:hover {
+    background: var(--ace-red-deep);
+    border-color: var(--ace-red-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(212, 0, 41, 0.32);
+  }
+  .closer-cta:hover::before { transform: translateX(0); }
+  .closer-cta .arrow { transition: transform 0.3s ease; }
+  .closer-cta:hover .arrow { transform: translateX(5px); }
+
   /* SEVEN VALUES */
   .values { background: var(--paper); }
   .values-header {
@@ -1206,6 +1242,10 @@
     <p class="lede reveal closer-lede">Anyone can fix what's broken. Few can build something that lasts.</p>
     <p class="reveal closer-final">This is the Ace Way.</p>
     <div class="sig reveal">Bringing Helpful To Your Home</div>
+    <a href="#" class="closer-cta reveal" aria-label="Apply now">
+      Apply Now
+      <span class="arrow">&rarr;</span>
+    </a>
   </div>
 </section>
 
